@@ -25,3 +25,15 @@ An unordered list of specific foods items at Cafe Niloufer that i recommend are
 
     [Linking About Me](https://github.com/bindisanjay/assignment2-bindi/blob/main/AboutMe.md)
 
+***
+Sports
+***
+
+We can see the games available within the community in below table
+
+| Sport |    Address    | Price |
+| :--------: | :------------: | :-----: |
+|  Badminton |   Sharjah   | 76.54 $ |
+|  Archery |  Arch Center  | 23.76 $ |
+|   Rugby   | Ball Center| 53 $ |
+| Tennis |     T-Park     | 88 $ |
