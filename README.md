@@ -55,3 +55,61 @@ We can see the games available within the community in below table
 > “One doesn't expect a falcon to pull a plow, or a butterfly to cook your breakfast.”
 
 ― *Katherine Blake, The Interior Life*
+
+---
+Code Fencing
+---
+
+> Dynamic programming is both a mathematical optimization method and a computer programming method. The method was developed by Richard Bellman in the 1950s and has found applications in numerous fields, from aerospace engineering to economics.
+
+[Click this for more on Dynamic Programming](https://en.wikipedia.org/wiki/Dynamic_programming)
+
+Finding the largest Zero Sub Matrix
+~~~
+
+int zero_matrix(vector<vector<int>> a) {
+    int n = a.size();
+    int m = a[0].size();
+
+    int ans = 0;
+    vector<int> d(m, -1), d1(m), d2(m);
+    stack<int> st;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            if (a[i][j] == 1)
+                d[j] = i;
+        }
+
+        for (int j = 0; j < m; ++j) {
+            while (!st.empty() && d[st.top()] <= d[j])
+                st.pop();
+            d1[j] = st.empty() ? -1 : st.top();
+            st.push(j);
+        }
+        while (!st.empty())
+            st.pop();
+
+        for (int j = m - 1; j >= 0; --j) {
+            while (!st.empty() && d[st.top()] <= d[j])
+                st.pop();
+            d2[j] = st.empty() ? m : st.top();
+            st.push(j);
+        }
+        while (!st.empty())
+            st.pop();
+
+        for (int j = 0; j < m; ++j)
+            ans = max(ans, (i - d[j]) * (d2[j] - d1[j] - 1));
+    }
+    return ans;
+}
+~~~
+
+[Click on this for Code](https://cp-algorithms.com/dynamic_programming/zero_matrix.html)
+
+
+
+
+
+
+
